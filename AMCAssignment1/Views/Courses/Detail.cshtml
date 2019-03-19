@@ -1,0 +1,23 @@
+﻿@model IndexCoursesViewModel
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+<p>Course name: @Model.Name</p>
+<p>Hours: @Model.Hours</p>
+<p>Enrollments: @Model.Enrollments</p>
+
+@if (!Model.EnrolledUsers.Any())
+{
+    <p>No users enrolled</p>
+}
+else
+{
+    foreach (var user in Model.EnrolledUsers)
+    {
+        <p>@user.Name</p>
+    }
+}
+

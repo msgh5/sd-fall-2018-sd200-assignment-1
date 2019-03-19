@@ -1,0 +1,27 @@
+﻿@model List<IndexCoursesViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Courses</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>Name</tr>
+        <tr>Hours</tr>
+        <tr>Enrollments</tr>
+        <tr></tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Name</td>
+                <td>@course.Hours</td>
+                <td>@course.Enrollments</td>
+                <td><a href="@Url.Action("Detail", "Courses", new { id = course.Id })">Detail</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

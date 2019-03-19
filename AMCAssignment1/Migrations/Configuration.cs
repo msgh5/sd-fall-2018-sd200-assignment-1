@@ -87,6 +87,15 @@ namespace AMCAssignment1.Migrations
                     .First(p => p.Name == "Cyber Defense");
             }
 
+            if (!context.Courses.Any(p => 
+            p.Name == "Network Security Diploma"))
+            {
+                var networkSecurity = new Course();
+                networkSecurity.Name = "Network Security Diploma";
+                networkSecurity.NumberOfHours = 400;
+                context.Courses.Add(networkSecurity);
+            }
+
             context.SaveChanges();
 
             if (!johnDoe.Courses.Any())
